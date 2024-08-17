@@ -1,1 +1,22 @@
+-- Função para detectar inimigos e mudar a cor deles para vermelho
+function detectarInimigos(inimigos)
+    for i, inimigo in ipairs(inimigos) do
+        if inimigo.estaVisivel then
+            inimigo.cor = {255, 0, 0} -- Muda a cor para vermelho (RGB)
+        end
+    end
+end
 
+-- Exemplo de uso
+inimigos = {
+    {nome = "Inimigo1", estaVisivel = true, cor = {255, 255, 255}},
+    {nome = "Inimigo2", estaVisivel = false, cor = {255, 255, 255}},
+    {nome = "Inimigo3", estaVisivel = true, cor = {255, 255, 255}}
+}
+
+detectarInimigos(inimigos)
+
+-- Imprime as cores dos inimigos para verificar
+for i, inimigo in ipairs(inimigos) do
+    print(inimigo.nome .. " cor: " .. table.concat(inimigo.cor, ", "))
+end
